@@ -41,7 +41,7 @@ Venlig hilsen
 
             body = body.Replace("\r\n", "<br/>");
 
-            String to = Request.QueryString["to"] ?? "trancku@gmail.com";
+            String to = Request.QueryString["to"] ?? "dinedaek@gmail.com";
 
             MailMessage mm = new MailMessage();
 

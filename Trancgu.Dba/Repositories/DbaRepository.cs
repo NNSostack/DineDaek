@@ -37,7 +37,10 @@ namespace Trancgu.Dba.Repositories
             ListItem li = new ListItem();
 
             li.Url = tr.Descendants("a").First().Attributes["href"].Value;
-            li.Title = tr.Descendants("span").Where(x => x.Attributes["class"] != null && x.Attributes["class"].Value == "text").First().InnerHtml;
+            li.Title = tr.Descendants("a").Skip(2).First().InnerHtml;
+            if (li.Title.Length > 100)
+                li.Title = li.Title.Substring(0, 75) + "...";
+
             li.Date = tr.SelectNodes("td[contains(@class, 'simple noWrap')]").First().InnerHtml;
             li.Price = tr.SelectNodes("td[contains(@class, 'simple noWrap')]").Last().InnerHtml;
 

@@ -84,7 +84,7 @@ Venlig hilsen
 
                 body = body.Replace("\r\n", "<br/>");
 
-                String to = Request.QueryString["to"] ?? "trancku@gmail.com";
+                String to = Request.QueryString["to"] ?? "dinedaek@gmail.com";
 
                 MailMessage mm = new MailMessage();
 
@@ -104,7 +104,7 @@ Venlig hilsen
                 mm.Body = autoEmailBodyFormat + mm.Body;
                 mm.To.Clear();
                 mm.To.Add(email.Text);
-                mm.ReplyTo = new MailAddress("trancku@gmail.com");
+                mm.ReplyTo = new MailAddress("dinedaek@gmail.com");
                 mm.Subject = String.Format("Autosvar på forespørgsel på {0} {1} hos {2}", tireType.Count, tireType.TireTypeString, Global.Title);
 
                 client.Send(mm);
