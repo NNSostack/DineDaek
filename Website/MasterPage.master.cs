@@ -11,7 +11,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!Request.Url.Host.StartsWith("www."))
+        {
+            Response.Status = "301 Moved Permanently";
+            Response.AddHeader("Location", Request.Url.Scheme + "://www." + Request.Url.Host);
+            Response.End();
+            Visible = false;
+        }
     }
 
     protected override void OnPreRender(EventArgs e)

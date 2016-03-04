@@ -12,7 +12,11 @@ public class Global
     {
         get
         {
-            return Host + " - danmarks billigste dæk";
+            return System.Web.HttpContext.Current.Items["title"] as String + "Danmarks garanteret billigste dæk - " + Host;
+        }
+        set
+        {
+            System.Web.HttpContext.Current.Items["title"] = value + " - ";
         }
     }
 
